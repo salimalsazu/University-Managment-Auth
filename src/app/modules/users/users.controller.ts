@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
 import usersService from './users.service'
 
-const createUser = async (req: any, res: any, next: NextFunction) => {
+const createUser = async (req: any, res: Response, next: NextFunction) => {
   try {
     const { user } = req.body
     const result = await usersService.createUser(user)
