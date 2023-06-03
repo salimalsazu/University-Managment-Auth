@@ -1,6 +1,7 @@
-import express, { Application, Request, Response } from 'express'
+import express, { Application, NextFunction, Request, Response } from 'express'
 import cors from 'cors'
 import usersRouter from './app/modules/users/users.route'
+import globalErrorHandler from './app/modules/users/middleares/golbalErrorHandler'
 const app: Application = express()
 
 //cors
@@ -10,13 +11,23 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// Application routes
+// logger.info(app.get('env'))
+// console.log(process.env)
 
+// Application routes
 app.use('/api/v1/users/', usersRouter)
 
 //Testing
-app.get('/', async (req: Request, res: any) => {
-  res.send('Working Successfully')
-})
+// app.get('/', (req: Request, res: Response, next: NextFunction) => {
+//   // res.send('Working Successfully')
+
+//   throw new ApiError('Server not Working')
+
+//   // next('Orey Error')
+// })
+
+//globalErrorHandler
+
+app.use(globalErrorHandler)
 
 export default app
