@@ -29,6 +29,16 @@
             "date": 1685810432568,
             "name": "F:\\Next_level_2\\Mission-3\\university-Project with yarn\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-06-03-22-error.log",
             "hash": "ca935c83a6acc239e26ea63f711cfb42438d1508b3c3ae33c26a30f2c705901c"
+        },
+        {
+            "date": 1685859839861,
+            "name": "F:\\Next_level_2\\Mission-3\\university-Project with yarn\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-06-04-12-error.log",
+            "hash": "a09437aebdb9a9672c0f1db6ce5681f87aefdce8220873dafee7a6598d55ca55"
+        },
+        {
+            "date": 1685889204769,
+            "name": "F:\\Next_level_2\\Mission-3\\university-Project with yarn\\university-management-auth-service\\logs\\winston\\errors\\phu-2023-06-04-20-error.log",
+            "hash": "5acb954471a5919edb9bc273da9628f9be602a949712300ff1b1477a17ec6f71"
         }
     ],
     "hashType": "sha256"
