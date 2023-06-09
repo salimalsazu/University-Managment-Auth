@@ -1,0 +1,12 @@
+{
+  message: '🛢   Database is connected successfully',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-06T15:42:01.934Z'
+}
+{
+  message: 'Application  listening on port 7000',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-06T15:42:01.947Z'
+}
