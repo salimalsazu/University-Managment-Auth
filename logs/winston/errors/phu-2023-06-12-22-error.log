@@ -1,0 +1,2 @@
+Mon Jun 12 2023 22:11:4 [PH University] error: Cast to number failed for value "i" (type string) at path "year" for model "AcademicSemester"
+Mon Jun 12 2023 22:11:48 [PH University] error: Cast to number failed for value "i" (type string) at path "year" for model "AcademicSemester"

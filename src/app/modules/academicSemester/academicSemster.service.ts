@@ -1,8 +1,18 @@
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
-import { IAcademicsemester } from './academicSemester.interface';
+import {
+  IAcademicSemesterFilter,
+  IAcademicsemester,
+} from './academicSemester.interface';
 import { AcademicSemester } from './academicSemester.model';
-import { AcademicSemesterTitleCodeMapper } from './academicSemster.constant';
+import {
+  AcademicSemesterTitleCodeMapper,
+  academicSemesterSearchAbleFileds,
+} from './academicSemster.constant';
+import { IpaginationOptions } from '../../../interface/pagination';
+import { IGenericResponse } from '../../../interface/common';
+import { paginationHelpers } from '../../../helpers/paginationHelper';
+import { SortOrder } from 'mongoose';
 
 const createSemester = async (
   payload: IAcademicsemester
@@ -15,6 +25,83 @@ const createSemester = async (
   return result;
 };
 
+const getAllSemsters = async (
+  filters: IAcademicSemesterFilter,
+  paginationOptions: IpaginationOptions
+): Promise<IGenericResponse<IAcademicsemester[]>> => {
+  const { searchTerm, ...filtersData } = filters;
+
+  const andConditions = [];
+
+  if (searchTerm) {
+    andConditions.push({
+      $or: academicSemesterSearchAbleFileds.map(field => ({
+        [field]: {
+          $regex: searchTerm,
+          $options: 'i',
+        },
+      })),
+    });
+  }
+
+  // const andConditions = [
+  //   {
+  //     $or: [
+  //       {
+  //         title: {
+  //           $regex: searchTerm,
+  //           $options: 'i',
+  //         },
+  //       },
+  //       {
+  //         code: {
+  //           $regex: searchTerm,
+  //           $options: 'i',
+  //         },
+  //       },
+  //       {
+  //         year: {
+  //           $regex: searchTerm,
+  //           $options: 'i',
+  //         },
+  //       },
+  //     ],
+  //   },
+  // ];
+
+  if (Object.keys(filtersData).length) {
+    andConditions.push({
+      $and: Object.entries(filtersData).map(([field, value]) => ({
+        [field]: value,
+      })),
+    });
+  }
+
+  const { page, limit, skip, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(paginationOptions);
+
+  const sortConditions: { [key: string]: SortOrder } = {};
+
+  if (sortBy && sortOrder) {
+    sortConditions[sortBy] = sortOrder;
+  }
+  const result = await AcademicSemester.find({ $and: andConditions })
+    .sort(sortConditions)
+    .skip(skip)
+    .limit(limit);
+
+  const total = await AcademicSemester.count();
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+    },
+    data: result,
+  };
+};
+
 export const AcademicSemesterService = {
   createSemester,
+  getAllSemsters,
 };
