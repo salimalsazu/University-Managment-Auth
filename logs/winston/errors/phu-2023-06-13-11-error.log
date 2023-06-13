@@ -1,0 +1,3 @@
+Tue Jun 13 2023 11:0:35 [PH University] error: Cast to ObjectId failed for value "fdgfgfgdgdfgdffgdgfdgf" (type string) at path "_id" for model "AcademicSemester"
+Tue Jun 13 2023 11:1:13 [PH University] error: Cast to ObjectId failed for value "fdgfgfgdgdfgdffgdgfdgf" (type string) at path "_id" for model "AcademicSemester"
+Tue Jun 13 2023 11:3:13 [PH University] error: Academic Semester is Already Exist
