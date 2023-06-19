@@ -44,31 +44,6 @@ const getAllSemsters = async (
     });
   }
 
-  // const andConditions = [
-  //   {
-  //     $or: [
-  //       {
-  //         title: {
-  //           $regex: searchTerm,
-  //           $options: 'i',
-  //         },
-  //       },
-  //       {
-  //         code: {
-  //           $regex: searchTerm,
-  //           $options: 'i',
-  //         },
-  //       },
-  //       {
-  //         year: {
-  //           $regex: searchTerm,
-  //           $options: 'i',
-  //         },
-  //       },
-  //     ],
-  //   },
-  // ];
-
   if (Object.keys(filtersData).length) {
     andConditions.push({
       $and: Object.entries(filtersData).map(([field, value]) => ({
@@ -116,9 +91,25 @@ const updateSemester = async (
   id: string,
   payload: Partial<IAcademicsemester>
 ): Promise<IAcademicsemester | null> => {
+  //condition 1
+  if (
+    payload.title &&
+    payload.code &&
+    AcademicSemesterTitleCodeMapper[payload.title] !== payload.code
+  ) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid Semester Code');
+  }
+
   const result = await AcademicSemester.findOneAndUpdate({ _id: id }, payload, {
     new: true,
   });
+  return result;
+};
+
+const deleteSemester = async (
+  id: string
+): Promise<IAcademicsemester | null> => {
+  const result = await AcademicSemester.findByIdAndDelete(id);
   return result;
 };
 
@@ -127,4 +118,30 @@ export const AcademicSemesterService = {
   getAllSemsters,
   getSingleSemester,
   updateSemester,
+  deleteSemester,
 };
+
+// const andConditions = [
+//   {
+//     $or: [
+//       {
+//         title: {
+//           $regex: searchTerm,
+//           $options: 'i',
+//         },
+//       },
+//       {
+//         code: {
+//           $regex: searchTerm,
+//           $options: 'i',
+//         },
+//       },
+//       {
+//         year: {
+//           $regex: searchTerm,
+//           $options: 'i',
+//         },
+//       },
+//     ],
+//   },
+// ];

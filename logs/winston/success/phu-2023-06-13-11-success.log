@@ -358,3 +358,27 @@
   label: 'PH University',
   timestamp: '2023-06-13T05:49:04.137Z'
 }
+{
+  message: '🛢   Database is connected successfully',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T05:49:15.543Z'
+}
+{
+  message: 'Application  listening on port 7000',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T05:49:15.565Z'
+}
+{
+  message: '🛢   Database is connected successfully',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T05:49:48.527Z'
+}
+{
+  message: 'Application  listening on port 7000',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T05:49:48.535Z'
+}

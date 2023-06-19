@@ -1,2 +1,0 @@
-Fri Jun 02 2023 22:27:12 [PH University] error: Failed to connect database The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
-Fri Jun 02 2023 22:27:15 [PH University] error: Failed to connect database The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.

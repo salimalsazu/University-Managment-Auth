@@ -1,7 +1,7 @@
 import express from 'express';
 import { AcademicSemesterValidation } from './academicSemester.validation';
 import { AcademicSemsterController } from './academicSemester.controller';
-import ValidateRequest from '../user/middleares/ValidateRequest';
+import ValidateRequest from '../../middleares/ValidateRequest';
 const router = express.Router();
 
 router.post(
@@ -12,8 +12,13 @@ router.post(
 
 router.get('/:id', AcademicSemsterController.getSingleSemester);
 
-router.patch('/:id', AcademicSemsterController.updateSemester);
+router.patch(
+  '/:id',
+  ValidateRequest(AcademicSemesterValidation.updateAcademicSemesterZodSchema),
+  AcademicSemsterController.updateSemester
+);
 
+router.delete('/:id', AcademicSemsterController.deleteSemester);
 router.get('/', AcademicSemsterController.getAllSemsters);
 
 export const SemesterRoutes = router;

@@ -2,9 +2,10 @@ import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 // import { UserRoutes } from './app/modules/user/user.route';
 // import { SemesterRoutes } from './app/modules/academicSemester/academicSemester.route';
-import globalErrorHandler from './app/modules/user/middleares/golbalErrorHandler';
+import globalErrorHandler from './app/middleares/golbalErrorHandler';
 import routes from './app/routes';
 import httpStatus from 'http-status';
+// import { generateFacultyId } from './app/modules/user/user.utils';
 // import ApiError from './errors/ApiError'
 const app: Application = express();
 
@@ -52,5 +53,11 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   });
   next();
 });
+
+// const testId = async () => {
+//   const abc = await generateFacultyId();
+//   console.log(abc);
+// };
+// testId();
 
 export default app;

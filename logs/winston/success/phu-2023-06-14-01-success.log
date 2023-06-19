@@ -1,0 +1,60 @@
+{
+  message: '🛢   Database is connected successfully',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T19:06:20.152Z'
+}
+{
+  message: 'Application  listening on port 7000',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T19:06:20.168Z'
+}
+{
+  message: '🛢   Database is connected successfully',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T19:06:38.029Z'
+}
+{
+  message: 'Application  listening on port 7000',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T19:06:38.041Z'
+}
+{
+  message: '🛢   Database is connected successfully',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T19:07:26.750Z'
+}
+{
+  message: 'Application  listening on port 7000',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T19:07:26.760Z'
+}
+{
+  message: '🛢   Database is connected successfully',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T19:08:11.534Z'
+}
+{
+  message: 'Application  listening on port 7000',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T19:08:11.547Z'
+}
+{
+  message: '🛢   Database is connected successfully',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T19:11:17.613Z'
+}
+{
+  message: 'Application  listening on port 7000',
+  level: 'info',
+  label: 'PH University',
+  timestamp: '2023-06-13T19:11:17.621Z'
+}
